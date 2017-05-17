@@ -20,7 +20,10 @@ void insertAndMove(std::vector<int>::iterator & toMovePosition, std::vector<int>
 
 void insertionSort(std::vector<int> & vec)
 {
-	
+	if(vec.size()==0)
+	{
+		return;
+	}	
 	for(auto currentPosition = vec.begin()+1; currentPosition != vec.end(); currentPosition++)
 	{
 		auto comparePosition = vec.begin();
