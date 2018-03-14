@@ -1,3 +1,18 @@
+/*
+Check SubTree : T1 and T2 are very large binary trees, with T1 much larger than T2
+				Create an algorithm to determine if T2 is a subtree of T1.
+
+Option 1 : Print out pre Order traversal of both trees with special character for NULL children
+			Traversal of T2 should be a substring of T1.
+			Time : O(T1.size + T2.size) Space : O(T1.size + T2.size)
+
+Option 2 : Do a BFS in T1 and whenever the value is equal to head of T2 , check equality of the subtree of T1 with T2.
+		   Time : Worst case O(T1.size*T2.size) because everytime we find an elemnt equal to root of T2, we equate it to T2.size
+		   If on an average there are k element in T1 which are equal to root of T2 then complexity is O(k*T2.size). Also while checking
+		   for equality we will return as soon as there is a single inequality found. So it wont search the entire T2.size.
+		   And if the subtree is present we wont traverse the entire T1 tree as we return as soon as subtree is found
+*/
+
 #include <iostream>
 #include <queue>
 
@@ -21,7 +36,7 @@ bool checkTreeEquality(Node*T1, Node*T2)
 	{
 		return true;
 	}
-	if(T1 == NULL && T2 == NULL && T1->data != T2->data)
+	if(T1 == NULL || T2 == NULL || T1->data != T2->data)
 	{
 		return false;
 	}
@@ -41,12 +56,12 @@ void checkSubtree(Node * T1, Node * T2)
 		std::cout << "Not a subtree\n";
 		return;
 	}
-	auto temp = T1;
 	std::queue<Node*> q;
-	q.push(temp);
+	q.push(T1);
 	while(!q.empty())
 	{
-		temp = q.front();
+		auto temp = q.front();
+		
 		if(temp->data == T2->data)
 		{
 			if(checkTreeEquality(temp, T2))
