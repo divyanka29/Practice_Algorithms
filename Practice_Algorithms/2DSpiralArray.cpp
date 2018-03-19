@@ -44,6 +44,10 @@ bool validMove(vector<vector<int>> & result, int next_r, int next_c)
 
 vector<vector<int>> spiral(int N)
 {
+	if(N<0)
+	{
+		throw("Invalid Arguments");
+	}
 	vector<vector<int>> result(N);
 	for(auto & each : result)
 	{
