@@ -17,7 +17,7 @@ class RoverMapper
 {
 public:
 	RoverMapper(int width, int height, std::string & gridStr);
-	//bool getPath(Coordinate start, Coordinate end);
+	bool getPath(Coordinate start, Coordinate end);
 private:
 
 	void createGrid(std::string & gridStr);

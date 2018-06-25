@@ -50,7 +50,7 @@ int main()
 	try
 	{
 		Rover::RoverMapper mapper(width, height, gridStr);
-	//	auto result = mapper.getPath(start, end);
+		auto result = mapper.getPath(start, end);
 	}
 	catch(std::exception const & e)
 	{

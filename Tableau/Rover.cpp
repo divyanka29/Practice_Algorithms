@@ -11,16 +11,16 @@ RoverMapper::RoverMapper(int width, int height, std::string & gridStr):
 {
 	if(gridStr.size() != width*height)
 	{
-		throw std::runtime_error("Bad input string for grid");
+		throw std::runtime_error("Bad input string for grid\n");
 	}
 	createGrid(gridStr);
-	std::cout << "Created!!\n";
+	std::cout << "Created Rover Mapper!!\n";
 }
 
-/*bool getPath(Coordinate start, Coordinate end)
+bool RoverMapper::getPath(Coordinate start, Coordinate end)
 {
 	return true;
-}*/
+}
 
 void RoverMapper::createGrid(std::string & gridStr)
 {
